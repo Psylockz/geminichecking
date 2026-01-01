@@ -1,45 +1,37 @@
-# Build local monorepo image
-# docker build --no-cache -t  flowise .
-
-# Run image
-# docker run -d -p 3000:3000 flowise
-
 FROM node:20-alpine
 
-# Install system dependencies and build tools
-RUN apk update && \
-    apk add --no-cache \
-        libc6-compat \
-        python3 \
-        make \
-        g++ \
-        build-base \
-        cairo-dev \
-        pango-dev \
-        chromium \
-        curl && \
-    npm install -g pnpm
+RUN apk update && apk add --no-cache \
+  libc6-compat \
+  python3 \
+  make \
+  g++ \
+  build-base \
+  cairo-dev \
+  pango-dev \
+  chromium \
+  curl && \
+  npm install -g pnpm
 
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-
 ENV NODE_OPTIONS=--max-old-space-size=8192
 
 WORKDIR /usr/src/flowise
-
-# Copy app source
 COPY . .
 
-# Install dependencies and build
-RUN pnpm install && \
-    pnpm build
+# 1) instalacja zależności repo
+RUN pnpm install
 
-# Give the node user ownership of the application files
+# 2) doinstaluj pakiety, których potrzebujesz w JS Function
+# (w monorepo najlepiej dodać je do package.json odpowiedniego workspace,
+#  ale to najprostszy działający wariant)
+RUN pnpm add cld3-asm franc-min
+
+# 3) build
+RUN pnpm build
+
 RUN chown -R node:node .
-
-# Switch to non-root user (node user already exists in node:20-alpine)
 USER node
 
 EXPOSE 3000
-
-CMD [ "pnpm", "start" ]
+CMD ["pnpm","start"]
