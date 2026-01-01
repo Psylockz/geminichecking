@@ -179,7 +179,7 @@ class CustomFunction_Agentflow implements INode {
 
         try {
             const response = await executeJavaScriptCode(javascriptFunction, sandbox, {
-                libraries: ['axios'],
+                libraries: ['axios', 'cld3-asm'],
                 streamOutput
             })
 
