@@ -120,7 +120,7 @@ export const availableDependencies = [
     'weaviate-ts-client'
 ]
 
-const defaultAllowExternalDependencies = ['axios', 'moment', 'node-fetch']
+const defaultAllowExternalDependencies = ['axios', 'moment', 'node-fetch','franc-min', 'cld3-asm']
 
 export const defaultAllowBuiltInDep = [
     'assert',
@@ -1666,7 +1666,7 @@ export const executeJavaScriptCode = async (
             require: {
                 external: {
                     modules: deps,
-                    transitive: false // Prevent transitive dependencies
+                    transitive: true // Prevent transitive dependencies
                 },
                 builtin: builtinDeps,
                 mock: secureWrappers // Replace HTTP libraries with secure wrappers
