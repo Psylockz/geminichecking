@@ -88,6 +88,7 @@
         "@types/uuid": "^9.0.7",
         "async-mutex": "^0.4.0",
         "axios": "1.12.0",
+        "pg": "^8.11.5",
         "cld3-asm": "^4.0.0",
         "franc-min": "^6.2.0",
         "bcryptjs": "^2.4.3",
