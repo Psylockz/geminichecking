@@ -9,6 +9,8 @@ overrides:
     '@grpc/grpc-js': ^1.10.10
     '@langchain/core': 0.3.61
     '@qdrant/openapi-typescript-fetch': 1.2.6
+    franc-min: ^6.2.0
+    cld3-asm: ^4.0.0
     openai: 4.96.0
     protobufjs: 7.4.0
     axios: 1.12.0
