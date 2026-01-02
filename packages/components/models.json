@@ -331,14 +331,8 @@
                 {
                     "label": "gpt-oss-120b",
                     "name": "gpt-oss-120b",
-                    "input_cost": 0.00000125,
-                    "output_cost": 0.00001
-                },
-                {
-                    "label": "grok-4-fast-non-reasoning",
-                    "name": "grok-4-fast-non-reasoning",
-                    "input_cost": 0.00000125,
-                    "output_cost": 0.00001
+                    "input_cost": 0.00000124,
+                    "output_cost": 0.00004
                 },
                 {
                     "label": "gpt-5",
@@ -458,6 +452,12 @@
                     "name": "gpt-4o-mini",
                     "input_cost": 1.5e-7,
                     "output_cost": 6e-7
+                },
+                {
+                    "label": "gpt-oss-120b",
+                    "name": "gpt-oss-120b",
+                    "input_cost": 0.00000125,
+                    "output_cost": 0.00001
                 },
                 {
                     "label": "gpt-4o",
@@ -1078,6 +1078,12 @@
                     "output_cost": 0.00001
                 },
                 {
+                    "label": "gpt-oss-120b",
+                    "name": "gpt-oss-120b",
+                    "input_cost": 0.00000125,
+                    "output_cost": 0.00001
+                },
+                {
                     "label": "gpt-5",
                     "name": "gpt-5",
                     "input_cost": 0.00000125,
@@ -1302,6 +1308,12 @@
                     "label": "gpt-4o",
                     "name": "gpt-4o",
                     "input_cost": 2.5e-6,
+                    "output_cost": 0.00001
+                },
+                {
+                    "label": "gpt-oss-120b",
+                    "name": "gpt-oss-120b",
+                    "input_cost": 0.00000125,
                     "output_cost": 0.00001
                 },
                 {
@@ -1761,6 +1773,12 @@
                     "label": "text-davinci-003",
                     "name": "text-davinci-003",
                     "total_cost": 0.00002
+                },
+                {
+                    "label": "gpt-oss-120b",
+                    "name": "gpt-oss-120b",
+                    "input_cost": 0.00000125,
+                    "output_cost": 0.00001
                 },
                 {
                     "label": "ada",
