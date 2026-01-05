@@ -120,7 +120,7 @@ export const availableDependencies = [
     'weaviate-ts-client'
 ]
 
-const defaultAllowExternalDependencies = ['axios', 'moment', 'node-fetch','franc-min', 'cld3-asm', "pg"]
+const defaultAllowExternalDependencies = ['axios', 'moment', 'node-fetch', 'franc-min', 'cld3-asm', 'pg']
 
 export const defaultAllowBuiltInDep = [
     'assert',
