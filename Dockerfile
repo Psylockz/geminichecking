@@ -1,35 +1,45 @@
+# Build local monorepo image
+# docker build --no-cache -t  flowise .
+
+# Run image
+# docker run -d -p 3000:3000 flowise
+
 FROM node:20-alpine
 
-RUN apk update && apk add --no-cache \
-  libc6-compat \
-    python3 \
-      make \
+# Install system dependencies and build tools
+RUN apk update && \
+    apk add --no-cache \
+        libc6-compat \
+        python3 \
+        make \
         g++ \
-          build-base \
-            cairo-dev \
-              pango-dev \
-                chromium \
-                  curl && \
-                    npm install -g pnpm
+        build-base \
+        cairo-dev \
+        pango-dev \
+        chromium \
+        curl && \
+    npm install -g pnpm
 
-                    ENV PUPPETEER_SKIP_DOWNLOAD=true
-                    ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-                    ENV NODE_OPTIONS=--max-old-space-size=4096
-                    ENV ROLLUP_MAX_PARALLEL=1
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-                    WORKDIR /usr/src/flowise
-                    COPY . .
+ENV NODE_OPTIONS=--max-old-space-size=8192
 
-                    # 1) instalacja zależności repo
-                    RUN pnpm install
+WORKDIR /usr/src/flowise
 
-                    # 3) build
-                    RUN pnpm turbo run build --concurrency=1
+# Copy app source
+COPY . .
 
+# Install dependencies and build
+RUN pnpm install && \
+    pnpm build
 
-                    RUN chown -R node:node .
-                    USER node
+# Give the node user ownership of the application files
+RUN chown -R node:node .
 
-                    EXPOSE 3000
-                    CMD ["pnpm","start"]
-                    
+# Switch to non-root user (node user already exists in node:20-alpine)
+USER node
+
+EXPOSE 3000
+
+CMD [ "pnpm", "start" ]
