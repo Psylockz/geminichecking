@@ -706,6 +706,12 @@ importers:
             axios:
                 specifier: 1.12.0
                 version: 1.12.0(debug@4.3.4)
+            franc-min:
+                specifier: ^6.2.0
+                version: 6.2.0
+            cld3-asm:
+                specifier: ^4.0.0
+                version: 4.0.0
             bcryptjs:
                 specifier: ^2.4.3
                 version: 2.4.3
