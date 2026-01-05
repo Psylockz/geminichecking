@@ -335,6 +335,24 @@
                     "output_cost": 0.00004
                 },
                 {
+                    "label": "grok-4-fast-non-reasoning",
+                    "name": "grok-4-fast-non-reasoning",
+                    "input_cost": 0.00000124,
+                    "output_cost": 0.00004
+                },
+                {
+                    "label": "gpt-5.2-chat",
+                    "name": "gpt-5.2-chat",
+                    "input_cost": 0.00000124,
+                    "output_cost": 0.00004
+                },
+                {
+                    "label": "DeepSeek-V3.1",
+                    "name": "DeepSeek-V3.1",
+                    "input_cost": 0.00000124,
+                    "output_cost": 0.00004
+                },
+                {
                     "label": "gpt-5",
                     "name": "gpt-5",
                     "input_cost": 0.00000125,
